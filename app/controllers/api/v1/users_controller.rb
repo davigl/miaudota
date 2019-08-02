@@ -31,11 +31,11 @@ module Api
       end
 
       def render_user_not_found
-        render json: { data: [], message: 'Usuário não encontrado.', status: :not_found }
+        render json: { data: [], message: 'Usuário não encontrado.' }, status: :not_found
       end
 
       def render_user_unprocessable_entity(user)
-        render json: { errors: user.errors, status: :unprocessable_entity }
+        render json: { errors: user.errors }, status: :unprocessable_entity
       end
 
       def set_user
