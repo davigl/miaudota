@@ -58,6 +58,8 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
+    faker (2.1.0)
+      i18n (>= 0.7)
     figaro (1.1.1)
       thor (~> 0.14)
     geocoder (1.5.1)
@@ -147,6 +149,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  faker
   figaro
   geocoder (~> 1.5, >= 1.5.1)
   jwt
