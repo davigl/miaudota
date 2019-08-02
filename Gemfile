@@ -25,8 +25,6 @@ gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,7 +37,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'figaro'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'bcrypt', '~> 3.1.7'
@@ -49,3 +46,4 @@ gem 'rack-attack'
 gem 'ransack'
 gem 'simple_command'
 gem 'figaro'
+gem 'rack-cors'
