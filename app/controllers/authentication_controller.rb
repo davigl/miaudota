@@ -6,11 +6,8 @@ class AuthenticationController < ApplicationController
   def authenticate
     command = AuthenticateUser.call(params[:email], params[:password])
 
-    if command.success?
-      render_command(command, :created)
-    else
-      render_command_unauthorized(command)
-    end
+    command.success? ? render_command(command, :created) : 
+                       render_command_unauthorized(command)
   end
 
   private
