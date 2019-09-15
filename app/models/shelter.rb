@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Shelter < ApplicationRecord
   belongs_to :user, polymorphic: true
 

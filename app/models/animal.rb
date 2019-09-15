@@ -1,7 +1,9 @@
-class Animal < ApplicationRecord
-	has_one_attached :image
+# frozen_string_literal: true
 
-	validates :breed, :name, :specie, presence: true
+class Animal < ApplicationRecord
+  has_one_attached :image
+
+  validates :breed, :name, :specie, presence: true
 
   belongs_to :shelter
 end
