@@ -5,34 +5,31 @@ module Api
     class AnimalsController < ApplicationController
       skip_before_action :authenticate_request
 
-      before_action :new, only: %i[attach_image create]
+      before_action :new, only: %i[attach_image]
 
       def new
         @animal = Animal.new
       end
 
-      def attach_image				
-        @animal.image.attach(image_param)
-      end
+      def attach_image; end
 
       def create
-        @animal.attributes = animal_params
-        @animal.image.attach(image_param)
-
+        @animal = Animal.new(animal_params)
         @animal.shelter = Shelter.last
 
-        @animal.valid? ? (@animal.save; render_model(@animal, :created)) : 
-                          (render_model_unprocessable_entity(@animal))
+        if @animal.valid? 
+          @animal.save! 
+
+          render_model(@animal, :created)
+        else
+          render_model_unprocessable_entity(@animal)
+        end
       end
 
       private
 
-      def image_param
-        params.permit(:image, :format)
-      end
-
       def animal_params
-        params.require(:animal).permit(:breed, :name, :description, :age, :specie, :size)
+        params.require(:animal).permit(:breed, :name, :description, :age, :specie, :size, :avatar)
       end
     end
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Animal < ApplicationRecord
-  has_one_attached :image
+	mount_uploader :avatar, AvatarUploader
 
   validates :breed, :name, :specie, presence: true
 

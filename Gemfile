@@ -37,3 +37,11 @@ gem 'rack-attack'
 gem 'rack-cors'
 gem 'ransack'
 gem 'simple_command'
+
+##############################
+####### UPLOAD IMAGE #########
+##############################
+
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'mini_magick'
