@@ -13,5 +13,5 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   def public_id
     return model.title
-  end 
+  end
 end
