@@ -16,6 +16,10 @@ class ApplicationController < ActionController::API
     render json: { errors: model.errors }, status: :unprocessable_entity
   end
 
+  def render_custom_element(element_name, element_value)
+    render json: { element_name => element_value }, status: :ok
+  end
+
   private
 
   def authenticate_request

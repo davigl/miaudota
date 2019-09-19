@@ -6,9 +6,16 @@ module Api
       skip_before_action :authenticate_request
 
       def attach_image
-        @image = Cloudinary::Uploader.upload(params[:image])
+        image = Cloudinary::Uploader.upload(params[:image])
+        secure_url = image['secure_url']
 
-        render json: { secure_url: @image['secure_url']}
+        render_custom_element(:secure_url, secure_url)
+      end
+
+      def index
+        @animals = Animal.order(:name).page params[:page]
+
+        render_model(@animals, :ok)
       end
 
       def create

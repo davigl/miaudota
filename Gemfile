@@ -37,6 +37,7 @@ gem 'rack-attack'
 gem 'rack-cors'
 gem 'ransack'
 gem 'simple_command'
+gem 'kaminari'
 
 ##############################
 ####### UPLOAD IMAGE #########

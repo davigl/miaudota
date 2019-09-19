@@ -98,6 +98,18 @@ GEM
       ruby-vips (>= 2.0.13, < 3)
     jsonapi-renderer (0.2.2)
     jwt (2.1.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -213,6 +225,7 @@ DEPENDENCIES
   figaro
   geocoder (~> 1.5, >= 1.5.1)
   jwt
+  kaminari
   mini_magick
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
