@@ -3,8 +3,6 @@
 module Api
   module V1
     class AnimalsController < ApplicationController
-      skip_before_action :authenticate_request
-
       def attach_image
         image = Cloudinary::Uploader.upload(params[:image])
         secure_url = image['secure_url']
@@ -21,14 +19,14 @@ module Api
       end
 
       def index
-        @animals = Animal.order(:name).page params[:page]
+        @animals = current_shelter.animals.order(:name).page params[:page]
 
         render_model(@animals, :ok)
       end
 
       def create
         @animal = Animal.new(animal_params)
-        @animal.shelter = Shelter.last
+        @animal.shelter = current_shelter
 
         if @animal.valid? 
           @animal.save!

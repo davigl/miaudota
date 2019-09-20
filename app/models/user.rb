@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+	has_one :shelter
+
   has_secure_password
 
   validates :name, :password, :password_confirmation, presence: true

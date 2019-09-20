@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::API
   before_action :authenticate_request
-  attr_reader :current_user
+  attr_reader :current_user, :current_shelter_
 
   def render_model(model, status)
     render json: model, status: status
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def current_shelter
+    @current_shelter = current_user.shelter
+  end
 
   def authenticate_request
     @current_user = AuthorizeApiRequest.call(request.headers).result
