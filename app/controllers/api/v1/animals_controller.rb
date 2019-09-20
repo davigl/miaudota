@@ -12,6 +12,14 @@ module Api
         render_custom_element(:secure_url, secure_url)
       end
 
+      def animals_infos
+        animals_size = Animal.all
+        adopted_animals = Animal.adopted_animals(true)
+        non_adopted_animals = Animal.adopted_animals(false)
+
+        render = {}
+      end
+
       def index
         @animals = Animal.order(:name).page params[:page]
 

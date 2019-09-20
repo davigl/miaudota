@@ -8,9 +8,16 @@ module Api
 
       def create
         user = User.new(user_params)
+        shelter = Shelter.new(shelter_params)
+        shelter.user = user
 
-        user.valid? ? (user.save; render_model(user, :created)) : 
-                      (render_model_unprocessable_entity(user))
+        if user.valid? and shelter.valid?
+          user.save; shelter.save
+
+          render_model(user, :created)
+        else
+          render_model_unprocessable_entity(user)
+        end
       end
 
       def show
@@ -25,6 +32,11 @@ module Api
 
       def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      end
+
+      def shelter_params
+        params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood,
+                                        :number, :complement, :reference)
       end
     end
   end
