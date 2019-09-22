@@ -14,8 +14,6 @@ module Api
         animals_size = Animal.all
         adopted_animals = Animal.adopted_animals(true)
         non_adopted_animals = Animal.adopted_animals(false)
-
-        render = {}
       end
 
       def index
@@ -28,7 +26,7 @@ module Api
         @animal = Animal.new(animal_params)
         @animal.shelter = current_shelter
 
-        if @animal.valid? 
+        if @animal.valid?
           @animal.save!
 
           render_model(@animal, :created)
