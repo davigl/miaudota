@@ -11,8 +11,8 @@ module Api
 
       def animals_info
         all_animals = current_shelter.registered_animals
-        adopted_animals = Animal.adopted_animals(true)
-        non_adopted_animals = Animal.adopted_animals(false)
+        adopted_animals = current_shelter.adopted_animals(true)
+        non_adopted_animals = current_shelter.adopted_animals(false)
 
         render json: { animals_size: all_animals,
                        adopted_animals: adopted_animals,

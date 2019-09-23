@@ -5,6 +5,4 @@ class Animal < ApplicationRecord
   paginates_per 10
 
   belongs_to :shelter
-
-  scope :adopted_animals, ->(adopted) { where(adopted: adopted).count }
 end
