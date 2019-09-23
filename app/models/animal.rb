@@ -6,5 +6,5 @@ class Animal < ApplicationRecord
 
   belongs_to :shelter
 
-  scope :adopted_animals, -> (adopted) { where(adopted: adopted) }
+  scope :adopted_animals, ->(adopted) { where(adopted: adopted) }
 end

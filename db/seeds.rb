@@ -6,8 +6,8 @@ require 'faker'
 
 username = Faker::Name.name
 
-user = User.create(name: username, email: ENV['ADMIN_EMAIL'], 
-                   password: ENV['ADMIN_PASSWORD'], 
+user = User.create(name: username, email: ENV['ADMIN_EMAIL'],
+                   password: ENV['ADMIN_PASSWORD'],
                    password_confirmation: ENV['ADMIN_PASSWORD'])
 
 # Creating a Shelter

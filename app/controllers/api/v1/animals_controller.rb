@@ -3,23 +3,13 @@
 module Api
   module V1
     class AnimalsController < ApplicationController
+      before_action :authenticate_request, except: [:attach_image]
+
       def attach_image
         image = Cloudinary::Uploader.upload(params[:image])
         secure_url = image['secure_url']
 
         render_custom_element(:secure_url, secure_url)
-      end
-
-      def animals_infos
-        animals_size = Animal.all
-        adopted_animals = Animal.adopted_animals(true)
-        non_adopted_animals = Animal.adopted_animals(false)
-      end
-
-      def index
-        @animals = current_shelter.animals.order(:name).page params[:page]
-
-        render_model(@animals, :ok)
       end
 
       def create
@@ -42,7 +32,8 @@ module Api
       end
 
       def animal_params
-        params.require(:animal).permit(:breed, :name, :description, :age, :specie, :size, :avatar)
+        params.require(:animal).permit(:breed, :name, :description, :age,
+                                       :specie, :size, :avatar)
       end
     end
   end

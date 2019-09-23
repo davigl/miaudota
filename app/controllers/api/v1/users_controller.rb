@@ -3,7 +3,6 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      skip_before_action :authenticate_request
       before_action :set_user, only: [:show]
 
       def create
