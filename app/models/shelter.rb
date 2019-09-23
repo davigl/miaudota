@@ -7,6 +7,6 @@ class Shelter < ApplicationRecord
   has_one_attached :image
 
   def registered_animals
-    self.animals.size
+    animals.size
   end
 end
