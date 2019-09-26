@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'animals/attach-image', to: 'animals#attach_image'
       get '/animals', to: 'shelters#animals'
       get '/animals-info', to: 'shelters#animals_info'
+      delete '/delete-animal/:id', to: "shelters#delete_animal"
     end
   end
 
