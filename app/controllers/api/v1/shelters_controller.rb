@@ -2,7 +2,7 @@ module Api
   module V1
     class SheltersController < ApplicationController
       before_action :authenticate_request
-      before_action :set_animals, only: [:destroy]
+      before_action :set_animals, only: [:delete_animal]
 
       def animals
         param_specie, param_size = params[:specie], params[:size]
