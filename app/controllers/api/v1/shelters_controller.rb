@@ -27,7 +27,7 @@ module Api
       def delete_animal
         animal = @animals.find(params[:id])
 
-        animal.destroy if animal
+        animal&.destroy
       end
 
       private
