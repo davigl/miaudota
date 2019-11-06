@@ -10,8 +10,28 @@ module Api
         shelter = Shelter.new(shelter_params)
         shelter.user = user
 
-        if user.valid? and shelter.valid?
+        if user.valid? && shelter.valid?
           user.save; shelter.save
+
+          render_model(user, :created)
+        else
+          render_model_unprocessable_entity(user)
+        end
+      end
+
+      def create_adopter
+        user = User.new(user_params)
+        adopter = Adopter.new(adopter_params)
+
+        p params[:adopter][:thumbnail]
+
+        image = params[:adopter][:thumbnail][:uri]
+        upload_image(image)
+
+        adopter.user = user
+
+        if user.valid? && adopter.valid?
+          user.save; adopter.save
 
           render_model(user, :created)
         else
@@ -30,12 +50,22 @@ module Api
       end
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password,
+                                     :password_confirmation)
       end
 
       def shelter_params
-        params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood,
+        params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood, 
                                         :number, :complement, :reference)
+      end
+
+      def adopter_params
+        params.require(:adopter).permit(:city, :state, :phone_number, :thumbnail)
+      end
+
+      def upload_image(image)
+        image = Cloudinary::Uploader.upload(image)
+        secure_url = image['secure_url']
       end
     end
   end
