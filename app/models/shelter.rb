@@ -6,7 +6,6 @@ class Shelter < ApplicationRecord
 
   has_one_attached :image
 
-
   def animals_filter_species(animals, species)
   	animals_output = animals.where(specie: species)
   end

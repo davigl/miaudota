@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       resources :users, only: %i[create show]
       resources :animals, only: %i[create show]
 
-      post 'animals/attach-image', to: 'animals#attach_image'
+      post '/create-adopter', to: "users#create_adopter"
+      post '/animals/attach-image', to: 'animals#attach_image'
       get '/animals', to: 'shelters#animals'
       get '/animals-info', to: 'shelters#animals_info'
       delete '/delete-animal/:id', to: 'shelters#delete_animal'

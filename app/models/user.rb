@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-	has_one :shelter
+  has_one :shelter
+  has_one :adopter
 
   has_secure_password
 
