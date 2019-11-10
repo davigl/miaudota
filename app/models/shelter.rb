@@ -5,15 +5,15 @@ class Shelter < ApplicationRecord
   has_many :animals
 
   def animals_filter_species(species)
-  	animals_output = animals.where(specie: species)
+    animals_output = animals.where(specie: species)
   end
 
   def animals_filter_sizes(sizes)
-  	animals_output = animals.where(size: sizes)
+    animals_output = animals.where(size: sizes)
   end
 
   def adopted_animals(adopted)
-  	animals.where(adopted: adopted).count
+    animals.where(adopted: adopted).count
   end
 
   def registered_animals_size
