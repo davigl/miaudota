@@ -5,4 +5,9 @@ class Animal < ApplicationRecord
   paginates_per 10
 
   belongs_to :shelter
+
+  def self.upload_image(param)
+  	image = Cloudinary::Uploader.upload(param)
+    secure_url = image['secure_url']
+  end
 end
