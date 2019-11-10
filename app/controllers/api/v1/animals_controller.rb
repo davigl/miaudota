@@ -32,8 +32,9 @@ module Api
       end
 
       def animal_params
-        params.require(:animal).permit(:breed, :name, :description, :age,
-                                       :specie, :size, :avatar)
+        params.require(:animal).permit(:name, :description, :age,
+                                       :specie, :size, :avatar, :gender, 
+                                       :castrated, :weight)
       end
     end
   end

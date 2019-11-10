@@ -1,3 +1,4 @@
 class AnimalSerializer < ActiveModel::Serializer
-  attributes :id, :name, :breed, :description, :age, :adopted, :specie, :size, :avatar
+  attributes :id, :name, :description, :age, :adopted, :specie, 
+  					 :size, :avatar, :castrated, :gender, :weight
 end

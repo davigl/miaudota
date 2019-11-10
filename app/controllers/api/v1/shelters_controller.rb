@@ -8,8 +8,8 @@ module Api
         param_specie, param_size = params[:specie], params[:size]
 
         animals = current_shelter.animals.order(:name).page page_param
-        animals = current_shelter.animals_filter_species(animals, param_specie) if param_specie
-        animals = current_shelter.animals_filter_sizes(animals, param_size) if param_size
+        animals = current_shelter.animals_filter_species(param_specie) if param_specie
+        animals = current_shelter.animals_filter_sizes(param_size) if param_size
 
         render_model(animals, :ok)
       end

@@ -4,13 +4,11 @@ class Shelter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :animals
 
-  has_one_attached :image
-
-  def animals_filter_species(animals, species)
+  def animals_filter_species(species)
   	animals_output = animals.where(specie: species)
   end
 
-  def animals_filter_sizes(animals, sizes)
+  def animals_filter_sizes(sizes)
   	animals_output = animals.where(size: sizes)
   end
 

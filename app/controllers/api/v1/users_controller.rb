@@ -5,7 +5,7 @@ module Api
     class UsersController < ApplicationController
       before_action :set_user, only: [:show]
 
-      def create
+      def create_shelter
         user = User.new(user_params)
         shelter = Shelter.new(shelter_params)
         shelter.user = user
@@ -22,13 +22,7 @@ module Api
       def create_adopter
         user = User.new(user_params)
         adopter = Adopter.new(adopter_params)
-
-        p params[:adopter][:thumbnail]
-
-        image = params[:adopter][:thumbnail][:uri]
-        upload_image(image)
-
-        adopter.user = user
+        adopter.update_attributes(user: user, thumbnail: adopter.upload_image)
 
         if user.valid? && adopter.valid?
           user.save; adopter.save
@@ -61,11 +55,6 @@ module Api
 
       def adopter_params
         params.require(:adopter).permit(:city, :state, :phone_number, :thumbnail)
-      end
-
-      def upload_image(image)
-        image = Cloudinary::Uploader.upload(image)
-        secure_url = image['secure_url']
       end
     end
   end

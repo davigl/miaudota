@@ -8,7 +8,7 @@ class CreateAdopters < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.string :phone_number
-      t.references :user, foreign_key: true
+      t.references :user, polymorphic: true
 
       t.timestamps
     end
