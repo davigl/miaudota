@@ -7,7 +7,7 @@ class Animal < ApplicationRecord
   belongs_to :shelter
 
   def self.upload_image(param)
-		image = Cloudinary::Uploader.upload(param)
-		secure_url = image['secure_url']
+    image = Cloudinary::Uploader.upload(param)
+    secure_url = image['secure_url']
   end
 end
