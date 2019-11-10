@@ -33,7 +33,8 @@ module Api
       def render_animals_info(all_animals, adopted_animals, non_adopted_animals)
         render json: { animals_size: all_animals,
                        adopted_animals: adopted_animals,
-                       non_adopted_animals: non_adopted_animals }
+                       non_adopted_animals: non_adopted_animals
+                       }, status: :ok
       end
 
       def set_animals
