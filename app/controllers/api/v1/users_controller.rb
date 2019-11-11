@@ -22,7 +22,7 @@ module Api
       def create_adopter
         user = User.new(user_params)
         adopter = Adopter.new(adopter_params)
-        adopter.update_attributes(user: user, thumbnail: adopter.upload_image)
+        adopter.update_attributes(user: user, thumbnail: adopter.upload_image(params[:file]))
 
         if user.valid? && adopter.valid?
           user.save; adopter.save
@@ -44,8 +44,11 @@ module Api
       end
 
       def user_params
-        params.require(:user).permit(:name, :email, :password,
-                                     :password_confirmation)
+        JSON.parse(params.require(:user))
+      end
+
+      def adopter_params
+         JSON.parse(params.require(:adopter))
       end
 
       def shelter_params
@@ -53,9 +56,7 @@ module Api
                                         :number, :complement, :reference)
       end
 
-      def adopter_params
-        params.require(:adopter).permit(:city, :state, :phone_number, :thumbnail)
-      end
+      
     end
   end
 end

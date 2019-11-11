@@ -31,6 +31,10 @@ class ApplicationController < ActionController::API
     @current_shelter = current_user.shelter
   end
 
+  def current_adopter
+    @current_adopter = current_user.adopter
+  end
+
   def render_authenticate_error
     render json: { error: 'Not authorized' }, status: 401
   end

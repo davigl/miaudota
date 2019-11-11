@@ -4,6 +4,15 @@ class Shelter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :animals
 
+  validates :street, :number, :city, :state, presence: true
+
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    [street, number, city, state].compact.join(", ")
+  end
+
   def animals_filter_species(species)
     animals.where(specie: species)
   end
