@@ -8,8 +8,8 @@ module Api
         param_specie, param_size = params[:specie], params[:size]
 
         animals = current_shelter.animals.order(:name).page page_param
-        animals = current_shelter.animals_filter_species(animals, param_specie) if param_specie
-        animals = current_shelter.animals_filter_sizes(animals, param_size) if param_size
+        animals = current_shelter.animals_filter_species(param_specie) if param_specie
+        animals = current_shelter.animals_filter_sizes(param_size) if param_size
 
         render_model(animals, :ok)
       end
@@ -19,9 +19,7 @@ module Api
         adopted_animals = current_shelter.adopted_animals(true)
         non_adopted_animals = current_shelter.adopted_animals(false)
 
-        render json: { animals_size: all_animals,
-                       adopted_animals: adopted_animals,
-                       non_adopted_animals: non_adopted_animals }
+        render_animals_info(all_animals, adopted_animals, non_adopted_animals)
       end
 
       def delete_animal
@@ -31,6 +29,13 @@ module Api
       end
 
       private
+
+      def render_animals_info(all_animals, adopted_animals, non_adopted_animals)
+        render json: { animals_size: all_animals,
+                       adopted_animals: adopted_animals,
+                       non_adopted_animals: non_adopted_animals
+                       }, status: :ok
+      end
 
       def set_animals
         @animals = current_shelter.animals

@@ -4,18 +4,25 @@ class Shelter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :animals
 
-  has_one_attached :image
+  validates :street, :number, :city, :state, presence: true
 
-  def animals_filter_species(animals, species)
-  	animals_output = animals.where(specie: species)
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    [street, number, city, state].compact.join(", ")
   end
 
-  def animals_filter_sizes(animals, sizes)
-  	animals_output = animals.where(size: sizes)
+  def animals_filter_species(species)
+    animals.where(specie: species)
+  end
+
+  def animals_filter_sizes(sizes)
+    animals.where(size: sizes)
   end
 
   def adopted_animals(adopted)
-  	animals.where(adopted: adopted).count
+    animals.where(adopted: adopted).count
   end
 
   def registered_animals_size

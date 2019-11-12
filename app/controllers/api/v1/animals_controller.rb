@@ -6,10 +6,9 @@ module Api
       before_action :authenticate_request, except: [:attach_image]
 
       def attach_image
-        image = Cloudinary::Uploader.upload(params[:image])
-        secure_url = image['secure_url']
+        param_image = params[:image]
 
-        render_custom_element(:secure_url, secure_url)
+        render_custom_element(:secure_url, Animal.upload_image(param_image))
       end
 
       def create
@@ -32,8 +31,9 @@ module Api
       end
 
       def animal_params
-        params.require(:animal).permit(:breed, :name, :description, :age,
-                                       :specie, :size, :avatar)
+        params.require(:animal).permit(:name, :description, :age,
+                                       :specie, :size, :avatar, :gender, 
+                                       :castrated, :weight)
       end
     end
   end
