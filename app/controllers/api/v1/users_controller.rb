@@ -55,8 +55,6 @@ module Api
         params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood, 
                                         :number, :complement, :reference)
       end
-
-      
     end
   end
 end
