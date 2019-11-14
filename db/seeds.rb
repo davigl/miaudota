@@ -34,12 +34,11 @@ animal_age = Faker::Creature::Dog.age
 animal_size = Faker::Creature::Dog.size
 animal_castrated = false
 animal_weight= 15
-animal_gender = "Male"
+animal_gender = "Macho"
 animal_avatar = 'https://res.cloudinary.com/hasashisama/image/upload/v1569963001/knjyvxdgsqkolaqowk5f.jpg'
 
 10.times do
-  Animal.create(name: animal_name, specie: animal_specie,
-                castrated: animal_castrated, gender: animal_gender, weight: animal_weight, 
-                age: animal_age, size: animal_size, avatar: animal_avatar, 
-                shelter_id: shelter.id)
+  Animal.create!(name: animal_name, specie: animal_specie, gender: animal_gender,
+                 weight: animal_weight, age: animal_age, size: animal_size, avatar: animal_avatar,
+                 shelter_id: shelter.id, castrated: animal_castrated)
 end
