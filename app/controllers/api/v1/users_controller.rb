@@ -3,8 +3,6 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :set_user, only: [:show]
-
       def create_shelter
         user = User.new(user_params)
         shelter = Shelter.new(shelter_params)
@@ -33,15 +31,7 @@ module Api
         end
       end
 
-      def show
-        @user ? render_model(@user, :ok) : render_model_not_found(@user)
-      end
-
       private
-
-      def set_user
-        @user = User.find(params[:id])
-      end
 
       def user_params
         JSON.parse(params.require(:user))

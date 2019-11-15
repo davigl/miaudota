@@ -7,4 +7,8 @@ class AnimalSerializer < ActiveModel::Serializer
   def created
   	distance_of_time_in_words(object.created_at, Time.now)
   end
+
+  def id
+  	object.id.to_s
+  end
 end
