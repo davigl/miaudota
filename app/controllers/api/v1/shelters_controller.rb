@@ -4,6 +4,14 @@ module Api
       before_action :authenticate_request
       before_action :set_animals, only: [:delete_animal]
 
+      def shelters
+        latitude, longitude = params[:latitude], params[:longitude]
+        
+        shelters = Shelter.near([latitude, longitude], 5, units: :km)
+
+        render_model(shelters, :ok)
+      end
+
       def animals
         param_specie, param_size = params[:specie], params[:size]
 
