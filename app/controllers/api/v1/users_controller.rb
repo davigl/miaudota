@@ -34,11 +34,15 @@ module Api
       private
 
       def user_params
-        JSON.parse(params.require(:user))
+        user = params.require(:user)
+
+        user.is_a? (Hash) ? user : JSON.parse(user)
       end
 
       def adopter_params
-         JSON.parse(params.require(:adopter))
+        adopter = params.require(:adopter)
+        
+        adopter.is_a? (Hash) ? adopter : JSON.parse(user)
       end
 
       def shelter_params
