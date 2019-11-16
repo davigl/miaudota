@@ -34,20 +34,16 @@ module Api
       private
 
       def user_params
-        user = params.require(:user)
-
-        user.is_a?(Hash) ? user : JSON.parse(user)
+        params.require(:user).as_json
       end
 
       def adopter_params
-        adopter = params.require(:adopter)
-        
-        adopter.is_a?(Hash) ? adopter : JSON.parse(user)
+        params.require(:adopter).as_json
       end
 
       def shelter_params
         params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood, 
-                                        :number, :complement, :reference)
+                                        :number, :complement, :reference, :user_type)
       end
     end
   end
