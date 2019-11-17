@@ -1,57 +1,55 @@
-module Api
-  module V1
-    class SheltersController < ApplicationController
-      before_action :authenticate_request
-      before_action :set_animals, only: [:delete_animal]
+# frozen_string_literal: true
 
-      def shelters
-        latitude, longitude = params[:latitude], params[:longitude]
-        
-        shelters = Shelter.near([latitude, longitude], 5, units: :km)
+class Api::V1::SheltersController < ApplicationController
+  before_action :authenticate_request
+  before_action :set_animals, only: [:delete_animal]
 
-        render_model(shelters, :ok)
-      end
+  def shelters
+    latitude, longitude = params[:latitude], params[:longitude]
 
-      def animals
-        param_specie, param_size = params[:specie], params[:size]
+    shelters = Shelter.near([latitude, longitude], 5, units: :km)
 
-        animals = current_shelter.animals.order(:name).page page_param
-        animals = current_shelter.animals_filter_species(param_specie) if param_specie
-        animals = current_shelter.animals_filter_sizes(param_size) if param_size
+    render_model(shelters, :ok)
+  end
 
-        render_model(animals, :ok)
-      end
+  def animals
+    param_specie, param_size = params[:specie], params[:size]
 
-      def animals_info
-        all_animals = current_shelter.registered_animals_size
-        adopted_animals = current_shelter.adopted_animals(true)
-        non_adopted_animals = current_shelter.adopted_animals(false)
+    animals = current_shelter.animals.order(:name).page page_param
+    animals = current_shelter.animals_filter_species(param_specie) if param_specie
+    animals = current_shelter.animals_filter_sizes(param_size) if param_size
 
-        render_animals_info(all_animals, adopted_animals, non_adopted_animals)
-      end
+    render_model(animals, :ok)
+  end
 
-      def delete_animal
-        animal = @animals.find(params[:id])
+  def animals_info
+    all_animals = current_shelter.registered_animals_size
+    adopted_animals = current_shelter.adopted_animals(true)
+    non_adopted_animals = current_shelter.adopted_animals(false)
 
-        animal&.destroy
-      end
+    render_animals_info(all_animals, adopted_animals, non_adopted_animals)
+  end
 
-      private
+  def delete_animal
+    animal = @animals.find(params[:id])
 
-      def render_animals_info(all_animals, adopted_animals, non_adopted_animals)
-        render json: { animals_size: all_animals,
-                       adopted_animals: adopted_animals,
-                       non_adopted_animals: non_adopted_animals
-                       }, status: :ok
-      end
+    animal&.destroy
+  end
 
-      def set_animals
-        @animals = current_shelter.animals
-      end
+  private
 
-      def page_param
-        params.require(:page) if params[:page]
-      end
-    end
+  def render_animals_info(all_animals, adopted_animals, non_adopted_animals)
+    render json: { animals_size: all_animals,
+     adopted_animals: adopted_animals,
+     non_adopted_animals: non_adopted_animals
+   }, status: :ok
+ end
+
+  def set_animals
+    @animals = current_shelter.animals
+  end
+
+  def page_param
+    params.require(:page) if params[:page]
   end
 end
