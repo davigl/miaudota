@@ -16,8 +16,8 @@ class  Api::V1::UsersController < ApplicationController
   end
 
   def create_adopter
-    user = User.new(user_params)
-    adopter = Adopter.new(adopter_params)
+    user = User.new(JSON.parse(user_params))
+    adopter = Adopter.new(JSON.parse(adopter_params))
     adopter.update_attributes(user: user, thumbnail: adopter.upload_image(params[:file]))
 
     if user.valid? && adopter.valid?

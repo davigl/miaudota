@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  attr_reader :current_user, :current_shelter
+  attr_reader :current_user, :current_shelter, :current_adopter
 
   def render_model(model, status)
     render json: model, status: status

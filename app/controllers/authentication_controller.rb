@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 class AuthenticationController < ApplicationController
-  def authenticate
-    command = AuthenticateUser.call(params[:email], params[:password])
+  def authenticate_shelter
+    command = AuthenticateUser.call_shelter(params[:email], params[:password], "shelter")
+
+    command.success? ? render_command(command, :created) : 
+                       render_command_unauthorized(command)
+  end
+
+  def authenticate_adopter
+    command = AuthenticateUser.call(params[:email], params[:password], "adopter")
 
     command.success? ? render_command(command, :created) : 
                        render_command_unauthorized(command)
