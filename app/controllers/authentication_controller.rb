@@ -2,7 +2,7 @@
 
 class AuthenticationController < ApplicationController
   def authenticate_shelter
-    command = AuthenticateUser.call_shelter(params[:email], params[:password], "shelter")
+    command = AuthenticateUser.call(params[:email], params[:password], "shelter")
 
     command.success? ? render_command(command, :created) : 
                        render_command_unauthorized(command)
