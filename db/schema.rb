@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_043740) do
+ActiveRecord::Schema.define(version: 2019_11_24_194745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2019_11_06_043740) do
     t.index ["user_type", "user_id"], name: "index_adopters_on_user_type_and_user_id"
   end
 
+  create_table "adoptions", force: :cascade do |t|
+    t.bigint "adopter_id"
+    t.bigint "appliance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adopter_id"], name: "index_adoptions_on_adopter_id"
+    t.index ["appliance_id"], name: "index_adoptions_on_appliance_id"
+  end
+
   create_table "animals", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -66,6 +75,27 @@ ActiveRecord::Schema.define(version: 2019_11_06_043740) do
     t.datetime "updated_at", null: false
     t.string "avatar"
     t.index ["shelter_id"], name: "index_animals_on_shelter_id"
+  end
+
+  create_table "appliances", force: :cascade do |t|
+    t.bigint "animal_id"
+    t.bigint "adopter_id"
+    t.string "schedule"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adopter_id"], name: "index_appliances_on_adopter_id"
+    t.index ["animal_id"], name: "index_appliances_on_animal_id"
+  end
+
+  create_table "questionnaries", force: :cascade do |t|
+    t.json "home"
+    t.json "family"
+    t.json "pets"
+    t.bigint "adopter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adopter_id"], name: "index_questionnaries_on_adopter_id"
   end
 
   create_table "shelters", force: :cascade do |t|
@@ -95,5 +125,10 @@ ActiveRecord::Schema.define(version: 2019_11_06_043740) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "adoptions", "adopters"
+  add_foreign_key "adoptions", "appliances"
   add_foreign_key "animals", "shelters"
+  add_foreign_key "appliances", "adopters"
+  add_foreign_key "appliances", "animals"
+  add_foreign_key "questionnaries", "adopters"
 end

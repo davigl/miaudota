@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home: 
+  family: 
+  pets: 
+  adopter: one
+
+two:
+  home: 
+  family: 
+  pets: 
+  adopter: two

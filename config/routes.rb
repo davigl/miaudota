@@ -24,8 +24,14 @@ Rails.application.routes.draw do
       # Adopters controller
 
       get '/adopter-profile', to: "adopters#profile"
+      get '/check-questionnaire', to: "adopters#check_questionnaire"
+      post '/check-already-applied', to: "adopters#check_already_applied"
+      post '/add-questionnaire', to: "adopters#add_questionnaire"
+      post '/adopt-pet', to: "adopters#adopt_pet"
     end
   end
+
+  # Authenticate
 
   post 'authenticate-adopter', to: 'authentication#authenticate_adopter'
   post 'authenticate-shelter', to: 'authentication#authenticate_shelter'

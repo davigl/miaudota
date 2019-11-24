@@ -6,6 +6,7 @@ class Animal < ApplicationRecord
   paginates_per 10
 
   belongs_to :shelter
+  has_many :appliances
 
   def self.upload_image(param)
     image = Cloudinary::Uploader.upload(param)

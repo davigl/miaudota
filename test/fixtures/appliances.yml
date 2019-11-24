@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  animal: one
+  adopter: one
+  schedule: MyString
+  status: 1
+
+two:
+  animal: two
+  adopter: two
+  schedule: MyString
+  status: 1
