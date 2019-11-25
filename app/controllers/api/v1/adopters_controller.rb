@@ -24,7 +24,7 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	def adopt_pet
-		animal = Animal.find(adopt_params)
+		animal = Animal.find(params[:animal_id])
 		appliance = Appliance.new(adopt_params)
 		appliance.adopter = current_adopter
 		appliance.shelter = animal.shelter
