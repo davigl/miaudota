@@ -7,6 +7,12 @@ class Api::V1::AdoptersController < ApplicationController
 		render_model(current_adopter, :ok)
 	end
 
+	def appliances
+		appliances = current_adopter.appliances
+		
+		render_model(appliances, :ok)
+	end
+
 	def add_questionnaire
 		questionnarie = Questionnarie.new(questionnarie_params)
 		adopter = current_adopter

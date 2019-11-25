@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
       # Adopters controller
 
+      get '/applications', to: "adopters#appliances"
       get '/adopter-profile', to: "adopters#profile"
       get '/check-questionnaire', to: "adopters#check_questionnaire"
       post '/check-already-applied', to: "adopters#check_already_applied"
