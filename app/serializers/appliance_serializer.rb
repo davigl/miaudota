@@ -1,6 +1,7 @@
 class ApplianceSerializer < ActiveModel::Serializer
 	attributes :id, :date
 	has_one :animal
+	has_one :adopter
 
 	def id
     object.id.to_s

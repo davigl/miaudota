@@ -23,9 +23,9 @@ class Api::V1::SheltersController < ApplicationController
   end
 
   def appliances
-    appliances = current_shelter.appliances.order(:name).page page_param
+    appliances = current_shelter.appliances.page page_param
 
-    render_model()
+    render_model(appliances, :ok)
   end
 
   def animals_info
