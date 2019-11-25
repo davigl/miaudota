@@ -3,6 +3,7 @@
 class Shelter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :animals
+  has_many :appliances
 
   validates :street, :number, :city, :state, presence: true
 

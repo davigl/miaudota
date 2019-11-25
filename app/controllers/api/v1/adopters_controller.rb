@@ -24,8 +24,10 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	def adopt_pet
+		animal = Animal.find(adopt_params)
 		appliance = Appliance.new(adopt_params)
 		appliance.adopter = current_adopter
+		appliance.shelter = animal.shelter
 
 		if (appliance.save)
 			render_model(appliance, :created)

@@ -22,6 +22,12 @@ class Api::V1::SheltersController < ApplicationController
     render_model(animals, :ok)
   end
 
+  def appliances
+    appliances = current_shelter.appliances.order(:name).page page_param
+
+    render_model()
+  end
+
   def animals_info
     all_animals = current_shelter.registered_animals_size
     adopted_animals = current_shelter.adopted_animals(true)
