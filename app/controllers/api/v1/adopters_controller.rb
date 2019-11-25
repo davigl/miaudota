@@ -27,7 +27,7 @@ class Api::V1::AdoptersController < ApplicationController
 		animal = Animal.find(adopt_params[:animal_id])
 		appliance = Appliance.new(adopt_params)
 		appliance.adopter = current_adopter
-		appliance.shelter = animal.shelter
+		appliance.shelter_id = animal.shelter.id
 
 		if (appliance.save)
 			render_model(appliance, :created)
