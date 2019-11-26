@@ -7,6 +7,18 @@ class Api::V1::AdoptersController < ApplicationController
 		render_model(current_adopter, :ok)
 	end
 
+	def create_post
+		post = Post.new(JSON.parse(post_params))
+		post.update_attributes(thumbnail: current_adopter.upload_image(params[:file]), 
+													 adopter_id: current_adopter.id)
+
+		if post.save
+			render_model(post, :created)
+		else
+			render_model_unprocessable_entity(post)
+		end
+	end
+
 	def appliances
 		appliances = current_adopter.appliances
 		
@@ -18,7 +30,7 @@ class Api::V1::AdoptersController < ApplicationController
 		adopter = current_adopter
 		adopter.questionnarie = questionnarie
 
-		if (adopter.save)
+		if adopter.save
 			render_model(adopter, :created)
 		end
 	end
@@ -30,7 +42,7 @@ class Api::V1::AdoptersController < ApplicationController
 		appliance.adopter = current_adopter
 		appliance.shelter = animal.shelter
 
-		if (appliance.save)
+		if appliance.save
 			render_model(appliance, :created)
 		end
 	end
@@ -48,6 +60,10 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	private
+
+	def post_params
+		params.require(:post).as_json
+	end
 
 	def questionnarie_params
 		params.require(:questionnaire).permit!

@@ -30,6 +30,11 @@ Rails.application.routes.draw do
       post '/check-already-applied', to: "adopters#check_already_applied"
       post '/add-questionnaire', to: "adopters#add_questionnaire"
       post '/adopt-pet', to: "adopters#adopt_pet"
+      post '/create-post', to: "adopters#create_post"
+
+      # Posts controller
+
+      get "/feed", to: "posts#index"
     end
   end
 

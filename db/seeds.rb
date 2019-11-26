@@ -13,11 +13,11 @@ user = User.create(name: username, email: ENV['ADMIN_EMAIL'],
 # Creating Shelter
 
 shelter_name = Faker::Company.name
-shelter_state = Faker::Address.state
-shelter_city = Faker::Address.city
-shelter_street = Faker::Address.street_name
-shelter_neighborhood = Faker::Address.community
-shelter_number = Faker::Address.building_number
+shelter_state = "Ceará"
+shelter_city = "Juazeiro do Norte"
+shelter_street = "José de Alencar"
+shelter_neighborhood = "Romeirão"
+shelter_number = "1020"
 shelter_complement = Faker::Address.secondary_address
 
 shelter = Shelter.create!(name: shelter_name, state: shelter_state,
@@ -35,7 +35,7 @@ animal_size = Faker::Creature::Dog.size
 animal_castrated = false
 animal_weight= 15
 animal_gender = "Macho"
-animal_avatar = 'https://res.cloudinary.com/hasashisama/image/upload/v1569963001/knjyvxdgsqkolaqowk5f.jpg'
+animal_avatar = 'https://res.cloudinary.com/hasashisama/image/upload/v1574712274/uzhe9lzt4fdiyrhzg1lw.jpg'
 
 10.times do
   Animal.create!(name: animal_name, specie: animal_specie, gender: animal_gender,

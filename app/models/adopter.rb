@@ -2,6 +2,7 @@ class Adopter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :appliances
   has_many :adoptions
+  has_many :posts
   has_one :questionnarie
 
   def upload_image(file)

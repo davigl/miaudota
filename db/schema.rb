@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_185224) do
+ActiveRecord::Schema.define(version: 2019_11_26_193919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 2019_11_25_185224) do
     t.index ["shelter_id"], name: "index_appliances_on_shelter_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.text "description"
+    t.string "thumbnail"
+    t.bigint "adopter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adopter_id"], name: "index_posts_on_adopter_id"
+  end
+
   create_table "questionnaries", force: :cascade do |t|
     t.json "home"
     t.json "family"
@@ -133,5 +142,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_185224) do
   add_foreign_key "appliances", "adopters"
   add_foreign_key "appliances", "animals"
   add_foreign_key "appliances", "shelters"
+  add_foreign_key "posts", "adopters"
   add_foreign_key "questionnaries", "adopters"
 end
