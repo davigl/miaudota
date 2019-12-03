@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get '/animals', to: 'shelters#animals'
       get '/animals-info', to: 'shelters#animals_info'
       get '/appliances', to: 'shelters#appliances'
+      get '/appliance/:id', to: "shelters#show_appliance"
       delete '/delete-animal/:id', to: 'shelters#delete_animal'
 
       # Adopters controller

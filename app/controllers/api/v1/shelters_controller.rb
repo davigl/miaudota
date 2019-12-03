@@ -3,6 +3,7 @@
 class Api::V1::SheltersController < ApplicationController
   before_action :authenticate_request
   before_action :set_animals, only: [:delete_animal]
+  before_action :set_appliance, only: [:show_appliance]
 
   def shelters
     latitude, longitude = params[:latitude], params[:longitude]
@@ -26,6 +27,10 @@ class Api::V1::SheltersController < ApplicationController
     appliances = current_shelter.appliances.page page_param
 
     render_model(appliances, :ok)
+  end
+
+  def show_appliance
+    @appliance ? render_model(@appliance, :ok) : render_model_not_found(@appliance)
   end
 
   def animals_info
@@ -53,6 +58,10 @@ class Api::V1::SheltersController < ApplicationController
 
   def set_animals
     @animals = current_shelter.animals
+  end
+
+  def set_appliance
+    @appliance = current_shelter.appliances.find(params[:id])
   end
 
   def page_param
