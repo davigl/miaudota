@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class  Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   def create_shelter
     user = User.new(user_params)
     shelter = Shelter.new(shelter_params)
@@ -40,7 +40,7 @@ class  Api::V1::UsersController < ApplicationController
   end
 
   def shelter_params
-    params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood, 
+    params.require(:shelter).permit(:name, :state, :city, :street, :neighborhood,
                                     :number, :complement, :reference, :user_type)
   end
 end

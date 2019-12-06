@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Questionnarie < ApplicationRecord
   belongs_to :adopter, dependent: :destroy
 

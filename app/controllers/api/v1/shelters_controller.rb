@@ -5,7 +5,8 @@ class Api::V1::SheltersController < ApplicationController
   before_action :set_animals, only: [:delete_animal]
 
   def shelters
-    latitude, longitude = params[:latitude], params[:longitude]
+    latitude = params[:latitude]
+    longitude = params[:longitude]
 
     shelters = Shelter.near([latitude, longitude], 30, units: :km).shuffle
 
@@ -13,7 +14,8 @@ class Api::V1::SheltersController < ApplicationController
   end
 
   def animals
-    param_specie, param_size = params[:specie], params[:size]
+    param_specie = params[:specie]
+    param_size = params[:size]
 
     animals = current_shelter.animals.order(:name).page page_param
     animals = current_shelter.animals_filter_species(param_specie) if param_specie
@@ -40,11 +42,10 @@ class Api::V1::SheltersController < ApplicationController
   private
 
   def render_animals_info(animals_size, adopted_animals, refused_appliances, awaiting_appliances)
-    render json: { animals_size: animals_size, 
-                   adopted_animals: adopted_animals, 
-                   refused_appliances: refused_appliances, 
-                   awaiting_appliances: awaiting_appliances 
-                 }, status: :ok
+    render json: { animals_size: animals_size,
+                   adopted_animals: adopted_animals,
+                   refused_appliances: refused_appliances,
+                   awaiting_appliances: awaiting_appliances }, status: :ok
   end
 
   def set_animals

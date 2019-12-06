@@ -14,8 +14,8 @@ class Animal < ApplicationRecord
   end
 
   def changes_to_adopted(id)
-  	self.update_attributes(adopted: true)
+    update_attributes(adopted: true)
 
-  	appliances.where.not(id: id).update_all(status: :rejected)
+    appliances.where.not(id: id).update_all(status: :rejected)
   end
 end

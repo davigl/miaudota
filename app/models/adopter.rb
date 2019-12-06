@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Adopter < ApplicationRecord
   belongs_to :user, polymorphic: true
   has_many :appliances
@@ -11,6 +13,6 @@ class Adopter < ApplicationRecord
   end
 
   def check_already_applied(adoption_params)
-  	appliances.where(adoption_params).any?
+    appliances.where(adoption_params).any?
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Appliance < ApplicationRecord
   belongs_to :animal
   belongs_to :adopter
