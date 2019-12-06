@@ -1,7 +1,7 @@
 class ApplianceSerializer < ActiveModel::Serializer
-	attributes :id, :date
+	attributes :id, :date, :status
 	has_one :animal
-	has_one :adopter
+	has_one :adopter, unless: -> { @instance_options[:custom_element].eql? "appliance" }
 
 	def id
     object.id.to_s

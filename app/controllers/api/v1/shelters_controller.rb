@@ -3,14 +3,13 @@
 class Api::V1::SheltersController < ApplicationController
   before_action :authenticate_request
   before_action :set_animals, only: [:delete_animal]
-  before_action :set_appliance, only: [:show_appliance]
 
   def shelters
     latitude, longitude = params[:latitude], params[:longitude]
 
-    shelters = Shelter.near([latitude, longitude], 5, units: :km)
+    shelters = Shelter.near([latitude, longitude], 30, units: :km).shuffle
 
-    render_model(shelters, :ok)
+    render_custom_model(shelters, [latitude, longitude], :ok)
   end
 
   def animals
@@ -23,22 +22,13 @@ class Api::V1::SheltersController < ApplicationController
     render_model(animals, :ok)
   end
 
-  def appliances
-    appliances = current_shelter.appliances.page page_param
-
-    render_model(appliances, :ok)
-  end
-
-  def show_appliance
-    @appliance ? render_model(@appliance, :ok) : render_model_not_found(@appliance)
-  end
-
   def animals_info
     all_animals = current_shelter.registered_animals_size
-    adopted_animals = current_shelter.adopted_animals(true)
-    non_adopted_animals = current_shelter.adopted_animals(false)
+    awaiting_appliances = current_shelter.check_appliances(:analyzing).count
+    adopted_animals = current_shelter.check_appliances(:accepted).count
+    refused_appliances = current_shelter.check_appliances(:rejected).count
 
-    render_animals_info(all_animals, adopted_animals, non_adopted_animals)
+    render_animals_info(all_animals, adopted_animals, refused_appliances, awaiting_appliances)
   end
 
   def delete_animal
@@ -49,19 +39,16 @@ class Api::V1::SheltersController < ApplicationController
 
   private
 
-  def render_animals_info(all_animals, adopted_animals, non_adopted_animals)
-    render json: { animals_size: all_animals,
-     adopted_animals: adopted_animals,
-     non_adopted_animals: non_adopted_animals
-   }, status: :ok
- end
+  def render_animals_info(animals_size, adopted_animals, refused_appliances, awaiting_appliances)
+    render json: { animals_size: animals_size, 
+                   adopted_animals: adopted_animals, 
+                   refused_appliances: refused_appliances, 
+                   awaiting_appliances: awaiting_appliances 
+                 }, status: :ok
+  end
 
   def set_animals
     @animals = current_shelter.animals
-  end
-
-  def set_appliance
-    @appliance = current_shelter.appliances.find(params[:id])
   end
 
   def page_param

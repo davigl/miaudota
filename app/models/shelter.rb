@@ -14,6 +14,8 @@ class Shelter < ApplicationRecord
     [street, number, city, state].compact.join(", ")
   end
 
+  # filtering animals
+
   def animals_filter_species(species)
     animals.where(specie: species)
   end
@@ -22,11 +24,13 @@ class Shelter < ApplicationRecord
     animals.where(size: sizes)
   end
 
-  def adopted_animals(adopted)
-    animals.where(adopted: adopted).count
-  end
-
   def registered_animals_size
     animals.size
+  end
+
+  # filtering appliances
+
+  def check_appliances(status)
+    appliances.where(status: status)
   end
 end

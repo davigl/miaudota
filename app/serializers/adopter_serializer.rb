@@ -1,5 +1,5 @@
 class AdopterSerializer < ActiveModel::Serializer
-	attributes :name, :email, :phone_number, :thumbnail, :state, :city, :photos
+	attributes :name, :email, :phone_number, :thumbnail, :state, :city, :photos, :count_adoptions
 
 	has_one :questionnarie
 
@@ -9,5 +9,9 @@ class AdopterSerializer < ActiveModel::Serializer
 
 	def email
 		object.user.email
+	end
+
+	def count_adoptions
+		object.adoptions.count
 	end
 end

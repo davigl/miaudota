@@ -20,9 +20,9 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	def appliances
-		appliances = current_adopter.appliances
+		appliances = current_adopter.appliances.reverse
 		
-		render_model(appliances, :ok)
+		render_custom_model(appliances, "appliance", :ok)
 	end
 
 	def add_questionnaire
@@ -36,13 +36,11 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	def adopt_pet
-		appliance = Appliance.new
 		animal = Animal.find(adopt_params[:animal_id])
-		appliance.animal = animal
-		appliance.adopter = current_adopter
-		appliance.shelter = animal.shelter
+		appliance = Appliance.new(animal: animal, adopter: current_adopter, 
+														 shelter: animal.shelter, status: adopt_params[:status] )
 
-		if appliance.save
+		if appliance.save!
 			render_model(appliance, :created)
 		end
 	end
@@ -70,6 +68,6 @@ class Api::V1::AdoptersController < ApplicationController
 	end
 
 	def adopt_params
-		params.require(:adoption).permit(:animal_id)
+		params.require(:adoption).permit(:animal_id, :status)
 	end
 end

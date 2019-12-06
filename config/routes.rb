@@ -19,8 +19,6 @@ Rails.application.routes.draw do
       post '/shelters', to: "shelters#shelters"
       get '/animals', to: 'shelters#animals'
       get '/animals-info', to: 'shelters#animals_info'
-      get '/appliances', to: 'shelters#appliances'
-      get '/appliance/:id', to: "shelters#show_appliance"
       delete '/delete-animal/:id', to: 'shelters#delete_animal'
 
       # Adopters controller
@@ -36,6 +34,15 @@ Rails.application.routes.draw do
       # Posts controller
 
       get "/feed", to: "posts#index"
+
+      # Appliances controller
+
+      get '/refused-appliances', to: "appliances#refused_appliances"
+      get '/accepted-appliances', to: "appliances#accepted_appliances"
+      post '/accept-appliance/:id', to: "appliances#accept_appliance"
+      put '/refuse-appliance/:id', to: "appliances#refuse_appliance"
+      get '/appliance/:id', to: "appliances#show_appliance"
+      get '/appliances', to: "appliances#appliances"
     end
   end
 

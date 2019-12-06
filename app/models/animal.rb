@@ -12,4 +12,10 @@ class Animal < ApplicationRecord
     image = Cloudinary::Uploader.upload(param)
     secure_url = image['secure_url']
   end
+
+  def changes_to_adopted(id)
+  	self.update_attributes(adopted: true)
+
+  	appliances.where.not(id: id).update_all(status: :rejected)
+  end
 end

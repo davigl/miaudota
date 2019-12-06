@@ -7,6 +7,10 @@ class ApplicationController < ActionController::API
     render json: model, status: status
   end
 
+  def render_custom_model(model, custom_element, status)
+    render json: model, custom_element: custom_element, status: status
+  end
+
   def render_model_not_found(message)
     render json: { data: [], message: message }, status: :not_found
   end
