@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class AnimalSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
 
-  attributes :id, :name, :description, :age, :adopted, :specie, 
-  					 :size, :avatar, :castrated, :gender, :weight, :created
+  attributes :id, :name, :description, :age, :adopted, :specie,
+             :size, :avatar, :castrated, :gender, :weight, :created
 
   def created
     distance_of_time_in_words(object.created_at, Time.now)
