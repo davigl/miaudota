@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     if model.any?
       render json: model, custom_element: custom_element, status: status
     else
-      render json: model
+      render json: { data: [] }, status: :not_found
     end
   end
 
