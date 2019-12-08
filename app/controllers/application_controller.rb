@@ -8,7 +8,11 @@ class ApplicationController < ActionController::API
   end
 
   def render_custom_model(model, custom_element, status)
-    render json: model, custom_element: custom_element, status: status
+    if model.any?
+      render json: model, custom_element: custom_element, status: status
+    else
+      render json: model
+    end
   end
 
   def render_model_not_found(message)
