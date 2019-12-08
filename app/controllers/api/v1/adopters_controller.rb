@@ -20,9 +20,9 @@ class Api::V1::AdoptersController < ApplicationController
   end
 
   def appliances
-    appliances = current_adopter.appliances.reverse
+    appliance = current_adopter.appliances.reverse
 
-    render_custom_model(appliances, 'appliance', :ok)
+    render_custom_model(appliance, 'appliance', :ok)
   end
 
   def add_questionnaire
