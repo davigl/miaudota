@@ -24,7 +24,7 @@ How it works? :thinking:
 <img src="https://i.imgur.com/MX0Id9R.gif" width="30%" height="30%" />
 <img src="https://imgur.com/EOv4jO0.gif" width="30%" height="30%" />
 
-<img src="https://imgur.com/b2WRAE0.png" width="50%" height="50%" />
+<img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
 
 </div>
 
