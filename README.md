@@ -4,7 +4,7 @@
 
 <div align="center">
 
-This app shows the animals available for adoption from the nearest shelters of the user, permitting application to the process of adoption by completing a questionnaire for shelters evaluate the profile of the possible adopter.
+This app shows the animals available for adoption from the nearest shelters of the user and permits the applications to the process of adoption, completing a questionnaire which shelters will evaluate the profile of the possible adopter.
 
 [![Star on GitHub][github-star-badge]][github-star]
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -15,7 +15,7 @@ This app shows the animals available for adoption from the nearest shelters of t
 </div>
 
 <h2>
-User Flow & Preview
+How it works? :thinking:
 </h2>
 
 <div align="center">
@@ -35,6 +35,13 @@ RubyCritic
 <h2>
 Tecnologias Utilizadas
 </h2>
+
+<h2>
+License
+</h2>
+
+Copyright © 2019, [Davi Guimarães](https://github.com/davigl).
+
 
 [github-star-badge]: https://img.shields.io/github/stars/davigl/miaudota-api.svg?style=social
 [github-star]:https://github.com/davigl/miaudota-api/stargazers
