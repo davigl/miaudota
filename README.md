@@ -21,8 +21,7 @@ How it works? :thinking:
 <div align="center">
 
 <img src="https://i.imgur.com/3V8Cytb.gif" width="30%" height="30%" />
-
-![](https://imgur.com/b2WRAE0.png)
+<img src="https://imgur.com/b2WRAE0.png" width="50%" height="50%" />
 
 </div>
 
