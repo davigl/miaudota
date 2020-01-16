@@ -20,7 +20,7 @@ How it works? :thinking:
 
 <div align="center">
 
-<img src="https://imgur.com/trIXUnA.gif" width="50%" height="50%" />
+<img src="https://i.imgur.com/3V8Cytb.gif" width="50%" height="50%" />
 
 ![](https://imgur.com/b2WRAE0.png)
 
