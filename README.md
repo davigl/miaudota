@@ -30,7 +30,7 @@ This app shows the animals available for adoption from the nearest shelters of t
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
 <img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
-*App Preview Features*
+*App Preview Features (Signup, Adoption, Others)*
 
 </div>
 
