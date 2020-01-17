@@ -20,7 +20,7 @@ How it works? :thinking:
 
 <div align="center">
 
-<img src="https://i.imgur.com/3V8Cytb.gif" width="30%" height="30%" />
+<img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
 <img src="https://imgur.com/EOv4jO0.gif" width="30%" height="30%" />
 
