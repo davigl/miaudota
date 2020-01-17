@@ -20,7 +20,7 @@ How it works? :thinking:
 
 <div align="center">
 
-<figure style="display: inline-block;">
+<figure>
     <img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
     <figcaption>Signup</figcaption>
 </figure>
