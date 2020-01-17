@@ -12,22 +12,25 @@ This app shows the animals available for adoption from the nearest shelters of t
 ![](https://i.imgur.com/eu5YAYV.png)
 ![](https://i.imgur.com/InogQV6.png)
 
+*Pet Preview*
+
 </div>
 
 <h2>
-How it works? :thinking:
+    How it works? :thinking:
 </h2>
 
 <div align="center">
+
+<img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
+
+*Userflow*
 
 <img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
 <img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
 *App Preview Features*
-
-<img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
-
 
 </div>
 
@@ -43,16 +46,21 @@ This project was analyzed using the **RubyCritic** gem, which evaluates a score 
 
 *Last Project Analysis*
 </div>
+
 <h2>
-Tecnologias Utilizadas
+Main Technologies
 </h2>
+
+* React Native & Expo;
+* Ruby on Rails API;
+* PostgreSQL;
+* Heroku.
 
 <h2>
 License
 </h2>
 
 Copyright © 2019, [Davi Guimarães](https://github.com/davigl).
-
 
 [github-star-badge]: https://img.shields.io/github/stars/davigl/miaudota-api.svg?style=social
 [github-star]:https://github.com/davigl/miaudota-api/stargazers
