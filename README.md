@@ -41,7 +41,7 @@ This project was analyzed using the **RubyCritic** gem, which evaluates a score 
 
 ![](https://imgur.com/TQLUGjZ.gif)
 
-*Project Analysis*
+*Last Project Analysis*
 </div>
 <h2>
 Tecnologias Utilizadas
