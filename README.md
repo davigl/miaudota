@@ -24,6 +24,8 @@ How it works? :thinking:
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
 <img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
+*App Preview Features*
+
 <img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
 
 
@@ -39,7 +41,7 @@ This project was analyzed using the **RubyCritic** gem, which evaluates a score 
 
 ![](https://imgur.com/TQLUGjZ.gif)
 
-*RubyCritic Analyses*
+*Project Analysis*
 </div>
 <h2>
 Tecnologias Utilizadas
