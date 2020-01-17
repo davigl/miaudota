@@ -20,14 +20,12 @@ How it works? :thinking:
 
 <div align="center">
 
-<figure>
-    <img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
-    <figcaption>Signup</figcaption>
-</figure>
+<img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
 <img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
 <img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
+
 
 </div>
 
