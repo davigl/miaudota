@@ -30,11 +30,17 @@ How it works? :thinking:
 </div>
 
 <h2>
-RubyCritic
+RubyCritic Analysis
 </h2>
+
+<div align="center">
+
+This project was analyzed using the **RubyCritic** gem, which evaluates a score **96.32**.
 
 ![](https://imgur.com/TQLUGjZ.gif)
 
+*RubyCritic Analyses*
+</div>
 <h2>
 Tecnologias Utilizadas
 </h2>
