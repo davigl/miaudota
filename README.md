@@ -22,7 +22,7 @@ How it works? :thinking:
 
 <img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
 <img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
-<img src="https://imgur.com/EOv4jO0.gif" width="30%" height="30%" />
+<img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
 <img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
 
