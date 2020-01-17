@@ -18,23 +18,18 @@ This app shows the animals available for adoption from the nearest shelters of t
 How it works? :thinking:
 </h2>
 
-<div align="center" style="display: flex;">
+<div align="center">
 
-<figure>
-    <img src="https://imgur.com/4Z3LMwD.gif" width="100%" />
+<figure style="display: inline-block;">
+    <img src="https://imgur.com/4Z3LMwD.gif" width="30%" height="30%" />
     <figcaption>Signup</figcaption>
 </figure>
-<figure>
-    <img src="https://imgur.com/4Z3LMwD.gif" width="100%" />
-    <figcaption>Signup</figcaption>
-</figure>
-<figure>
-    <img src="https://imgur.com/4Z3LMwD.gif" width="100%" />
-    <figcaption>Signup</figcaption>
-</figure>
-</div>
+<img src="https://imgur.com/WC9SC56.gif" width="30%" height="30%" />
+<img src="https://imgur.com/TysQABR.gif" width="30%" height="30%" />
 
 <img src="https://imgur.com/b2WRAE0.png" width="90%" height="90%" />
+
+</div>
 
 <h2>
 RubyCritic
